@@ -43,7 +43,14 @@ else:
 
 prefixo = st.text_input("Texto antes", "")
 sufixo = st.text_input("Texto depois", "")
-separador = st.selectbox("Separador", [';', ',', '.', '/', '-'])
+separador_opcao = st.selectbox(
+    "Separador",
+    [';', ',', '.', '/', '-', 'Quebra de linha']
+)
+
+# Mapear a opção para o separador real
+separador = '\n' if separador_opcao == 'Quebra de linha' else separador_opcao
+
 
 # Opção de normalização
 normalizacao = st.radio(
